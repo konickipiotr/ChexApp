@@ -1,10 +1,21 @@
 <resources>
-    <string name="app_name">ChexApp</string>
+    <string name="app_name">CHEX</string>
 
-    <string name="login_username">Użytkownik</string>
+    <string name="login_email">Email</string>
     <string name="password">Hasło</string>
     <string name="signIn">Zaloguj</string>
+    <string name="forgotPasswordBtn">Zapomniałem hasło</string>
+    <string name="registerBtn">Zarejestruj</string>
 
     <string name="wrong_credentials">Wrong username/password</string>
     <string name="connection_timeout">Connection timed out. Unable to connect to server</string>
+    <string name="server_connection_err">Failed to connect to the server</string>
+
+    <string name="there_is_no_place_in_area">W okolicy nie ma interesującego miejsca</string>
+    <string name="unknown_error_occured">Wystąpił nieznany błąd</string>
+    <string name="takePhoto">Zrób zdjęcie</string>
+
+    <string name="btnCheck">CHECK</string>
+
+
 </resources>

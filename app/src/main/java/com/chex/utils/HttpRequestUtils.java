@@ -21,7 +21,8 @@ public class HttpRequestUtils {
 
     public HttpHeaders getRequestHeaders() {
         HttpHeaders requestHeaders = new HttpHeaders();
-        HttpAuthentication authHeader = new HttpBasicAuthentication(Settings.username, Settings.password);
+        //HttpAuthentication authHeader = new HttpBasicAuthentication(Settings.username, Settings.password);
+        HttpAuthentication authHeader = new HttpBasicAuthentication("user1", "11");
         requestHeaders.setAuthorization(authHeader);
         requestHeaders.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));
         return requestHeaders;
