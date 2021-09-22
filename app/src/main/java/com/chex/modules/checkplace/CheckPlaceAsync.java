@@ -5,10 +5,6 @@ import android.os.AsyncTask;
 import com.chex.config.Settings;
 import com.chex.utils.Coords;
 import com.chex.utils.HttpRequestUtils;
-import com.chex.utils.ListWrapper;
-import com.chex.utils.RetStatus;
-import com.chex.utils.ReturnAsync;
-import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
@@ -23,7 +19,6 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponents;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import java.util.List;
 
 public class CheckPlaceAsync extends AsyncTask<Coords, Void, CheckPlaceResponse> {
     @Override
@@ -45,7 +40,6 @@ public class CheckPlaceAsync extends AsyncTask<Coords, Void, CheckPlaceResponse>
         try {
             ResponseEntity<CheckPlaceResponse> response = restTemplate.exchange(build.toUriString(), HttpMethod.GET, new HttpEntity<>(requestHeaders), CheckPlaceResponse.class);
             ret = response.getBody();
-            //ret = mapper.convertValue(response.getBody(), new TypeReference<CheckPlaceResponse>() {});
         }catch (HttpClientErrorException e){
             if(e.getStatusCode().equals(HttpStatus.NOT_FOUND))
                 ret.setResponseStatus(CheckPlaceResponseStatus.NOTFOUND);

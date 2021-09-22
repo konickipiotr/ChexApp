@@ -8,9 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 public class AchievedPlaceDTO implements Serializable {
 
     private Map<String, Integer> achievedPlaces;

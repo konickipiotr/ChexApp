@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.content.res.loader.ResourcesLoader;
 import android.os.AsyncTask;
+import android.view.View;
 
 import com.chex.Home;
 import com.chex.MainActivity;
@@ -53,10 +54,19 @@ public class AuthenticationHandler extends AsyncTask<String, Void, String> {
         RestTemplate restTemplate = new HttpRequestUtils().getRestTemplate();
         String ret = null;
         try {
-            ResponseEntity<User> response = restTemplate.exchange(path, HttpMethod.GET, new HttpEntity<>(requestHeaders), User.class);
-            Settings.user = response.getBody();
+            ResponseEntity<Auth> response = restTemplate.exchange(path, HttpMethod.GET, new HttpEntity<>(requestHeaders), Auth.class);
+            Auth auth = response.getBody();
+            if(auth.getAccountStatus().equals(AccountStatus.INACTIVE)){
+                return context.getResources().getString(R.string.account_is_inactive);
+            }
+
             Settings.username = username;
             Settings.password = password;
+
+            path = Settings.ROOT_PATH + "/user";
+            ResponseEntity<User> response2 = restTemplate.exchange(path, HttpMethod.GET, new HttpEntity<>(requestHeaders), User.class);
+            Settings.user = response2.getBody();
+
         }catch (HttpClientErrorException e){
             ret = context.getResources().getString(R.string.wrong_credentials);
         }catch (ResourceAccessException e){
@@ -71,6 +81,7 @@ public class AuthenticationHandler extends AsyncTask<String, Void, String> {
 
         MainActivity context = this.activityReference.get();
         if(ret != null){
+            context.error_message.setVisibility(View.VISIBLE);
             context.error_message.setText(ret);
             context.username.setText("");
             context.password.setText("");

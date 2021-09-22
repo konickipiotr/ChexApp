@@ -1,8 +1,9 @@
 <resources>
     <string name="app_name">CHEX</string>
 
-    <string name="login_email">Email</string>
+    <string name="email">Email</string>
     <string name="password">Hasło</string>
+    <string name="password_again">Powtórz hasło</string>
     <string name="signIn">Zaloguj</string>
     <string name="forgotPasswordBtn">Zapomniałem hasło</string>
     <string name="registerBtn">Zarejestruj</string>
@@ -17,5 +18,29 @@
 
     <string name="btnCheck">CHECK</string>
 
+    <string name="firstname">Imię</string>
+    <string name="lastname">Nazwisko</string>
+    <string name="gender">Płeć</string>
+    <string name="gender_male">Mężczyzna</string>
+    <string name="gender_female">Kobieta</string>
+    <string name="country">Kraj</string>
 
+
+    <!--  HEADER  -->
+    <string name="registration_header">Rejestracja</string>
+
+    <!--  MESSGAES   -->
+    <string name="email_cannot_be_empty">Pole email nie może być puste</string>
+    <string name="email_is_not_email">Błedny adres email</string>
+    <string name="password_cannot_be_empty">Hasło nie może być puste</string>
+    <string name="passwords_are_not_the_same">Hasła nie są takie same</string>
+    <string name="password_is_too_short">Hasło jest za krótkie. Min 6 znaków</string>
+    <string name="first_name_cannot_be_empty">Pole imię nie może być puste</string>
+    <string name="last_name_cannot_be_empty">Pole nazwisko nie może być puste</string>
+    <string name="email_exists">Konto z takim adresem email już istnieje</string>
+
+    <string name="account_is_inactive">Konto nie zostało aktywowane</string>
+
+
+    <string name="activation_code_sent">Na adres %s został wysłany kod aktywacyjny</string>
 </resources>

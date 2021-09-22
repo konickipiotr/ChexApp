@@ -1,28 +1,30 @@
-package com.chex.user;
+package com.chex.module.registration;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
-@JsonIgnoreProperties(ignoreUnknown = true)
-public class User {
-
-    private Long id;
+public class RegistrationForm {
+    private String email;
+    private String password;
     private String firstname;
     private String lastname;
     private String gender;
     private String country;
-    private String imgurl;
-    private String imgpath;
 
-    public String getName(){
-        return this.firstname + " " + this.lastname;
+    public RegistrationForm() {
     }
 
-    public Long getId() {
-        return id;
+    public String getEmail() {
+        return email;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getFirstname() {
@@ -55,21 +57,5 @@ public class User {
 
     public void setCountry(String country) {
         this.country = country;
-    }
-
-    public String getImgurl() {
-        return imgurl;
-    }
-
-    public void setImgurl(String imgurl) {
-        this.imgurl = imgurl;
-    }
-
-    public String getImgpath() {
-        return imgpath;
-    }
-
-    public void setImgpath(String imgpath) {
-        this.imgpath = imgpath;
     }
 }

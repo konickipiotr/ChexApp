@@ -7,13 +7,11 @@ import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
 
 import android.Manifest;
-import android.content.ClipData;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
@@ -27,16 +25,13 @@ import com.chex.Home;
 import com.chex.R;
 import com.chex.config.Settings;
 import com.chex.modules.checkplace.AchievedPlaceDTO;
-import com.chex.modules.checkplace.CheckPlaceView;
 import com.chex.modules.checkplace.UploadPlaceAsync;
 import com.chex.utils.FileUtils;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class AddPlacePhotoActivity extends AppCompatActivity {
 

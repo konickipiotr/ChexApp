@@ -43,14 +43,34 @@
             app:srcCompat="@drawable/ico" />
 
         <TextView
+            android:id="@+id/info_message"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="4dp"
+            android:gravity="center"
+            android:text=""
+            android:textColor="@color/very_dark_green_btn"
+            android:textStyle="bold"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/login_error_message" />
+
+        <TextView
             android:id="@+id/login_error_message"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="20dp"
             android:layout_marginEnd="8dp"
+            android:gravity="center"
+            android:textColor="@color/design_default_color_error"
+            android:textStyle="bold"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
@@ -59,19 +79,19 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:autofillHints="@string/login_email"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="4dp"
             android:background="@drawable/rounded_edittext"
             android:ems="10"
             android:focusable="auto"
-            android:hint="@string/login_email"
+            android:hint="@string/email"
             android:inputType="textPersonName"
             android:padding="5dp"
+            android:autofillHints="AUTOFILL_HINT_EMAIL_ADDRESS"
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/login_error_message" />
+            app:layout_constraintTop_toBottomOf="@+id/info_message" />
 
         <EditText
             android:id="@+id/login_password_input"
@@ -80,7 +100,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
-            android:autofillHints="@string/password"
+            android:autofillHints="AUTOFILL_HINT_PASSWORD"
             android:background="@drawable/rounded_edittext"
             android:ems="10"
             android:hint="@string/password"
@@ -92,7 +112,7 @@
             app:layout_constraintTop_toBottomOf="@+id/login_username_input" />
 
         <Button
-            android:id="@+id/login_signin_btn"
+            android:id="@+id/signin_btn"
             android:layout_width="0dp"
             android:layout_height="80dp"
             android:layout_marginStart="8dp"
@@ -107,24 +127,24 @@
             app:layout_constraintTop_toBottomOf="@+id/login_password_input" />
 
         <Button
-            android:id="@+id/login_register_btn"
+            android:id="@+id/register_btn"
             android:layout_width="347dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="64dp"
             android:text="@string/registerBtn"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/login_signin_btn" />
+            app:layout_constraintTop_toBottomOf="@+id/signin_btn" />
 
         <Button
-            android:id="@+id/login_forgotpass_btn"
+            android:id="@+id/forgotpass_btn"
             android:layout_width="347dp"
             android:layout_height="48dp"
             android:layout_marginTop="8dp"
             android:text="@string/forgotPasswordBtn"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/login_register_btn" />
+            app:layout_constraintTop_toBottomOf="@+id/register_btn" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
