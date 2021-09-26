@@ -1,4 +1,4 @@
-package com.chex.module.registration;
+package com.chex.modules.registration;
 
 public class RegistrationForm {
     private String email;

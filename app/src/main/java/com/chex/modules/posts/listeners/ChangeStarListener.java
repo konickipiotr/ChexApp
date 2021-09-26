@@ -1,18 +1,13 @@
-package com.chex.module.posts.listeners;
+package com.chex.modules.posts.listeners;
 
-import android.app.Activity;
 import android.os.AsyncTask;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import com.chex.R;
 import com.chex.config.Settings;
-import com.chex.module.posts.MiniPostAdapter;
-import com.chex.module.posts.PostUpdater;
-import com.chex.module.posts.model.Comment;
-import com.chex.module.posts.model.Star;
-import com.chex.modules.checkplace.CheckPlaceAsync;
+import com.chex.modules.posts.model.Comment;
+import com.chex.modules.posts.model.Star;
 import com.chex.utils.HttpRequestUtils;
 
 import org.springframework.http.HttpEntity;
@@ -51,7 +46,7 @@ public class ChangeStarListener implements View.OnClickListener {
             HttpHeaders requestHeaders = requestUtils.getRequestHeaders();
             RestTemplate restTemplate = requestUtils.getRestTemplate();
             String path = Settings.ROOT_PATH + "/post/changestar";
-            ResponseEntity<Boolean> response = restTemplate.postForEntity(path, new HttpEntity<Star>(star, requestHeaders), Boolean.class);
+            ResponseEntity<Boolean> response = restTemplate.postForEntity(path, new HttpEntity<>(star, requestHeaders), Boolean.class);
             return response.getBody();
         }
 
@@ -59,7 +54,7 @@ public class ChangeStarListener implements View.OnClickListener {
         protected void onPostExecute(Boolean star) {
             super.onPostExecute(star);
 
-            int starN = Integer.valueOf(starnum.getText().toString());
+            int starN = Integer.parseInt(starnum.getText().toString());
             if(star){
                 starOn.setVisibility(View.VISIBLE);
                 starOff.setVisibility(View.GONE);

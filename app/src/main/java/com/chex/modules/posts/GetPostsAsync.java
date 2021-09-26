@@ -1,4 +1,5 @@
-package com.chex.module.posts;
+package com.chex.modules.posts;
+
 
 import android.os.AsyncTask;
 
@@ -6,8 +7,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.chex.Home;
 import com.chex.config.Settings;
-import com.chex.module.posts.model.PostView;
-import com.chex.module.posts.model.PostsResponse;
+import com.chex.modules.posts.model.PostView;
+import com.chex.modules.posts.model.PostsResponse;
 import com.chex.utils.HttpRequestUtils;
 
 import org.springframework.http.HttpEntity;
@@ -39,10 +40,7 @@ public class GetPostsAsync extends AsyncTask<Void, Void, List<PostView>> {
         ResponseEntity<PostsResponse> response = restTemplate.exchange(path, HttpMethod.GET, new HttpEntity<>(requestHeaders), PostsResponse.class);
 
         PostsResponse body = response.getBody();
-        List<PostView> posts = body.getPosts();
-
-
-        return posts;
+        return body.getPosts();
     }
 
     @Override

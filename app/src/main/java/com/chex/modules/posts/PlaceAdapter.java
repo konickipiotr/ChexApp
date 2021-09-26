@@ -1,4 +1,4 @@
-package com.chex.module.posts;
+package com.chex.modules.posts;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -13,8 +13,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.chex.R;
 import com.chex.config.Settings;
-import com.chex.module.posts.model.PlaceShortView;
-import com.chex.module.posts.model.PostView;
+import com.chex.modules.posts.model.PlaceShortView;
+import com.chex.modules.posts.model.PostView;
 
 import java.util.List;
 

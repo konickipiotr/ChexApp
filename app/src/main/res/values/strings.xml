@@ -28,6 +28,7 @@
 
     <!--  HEADER  -->
     <string name="registration_header">Rejestracja</string>
+    <string name="forgot_password_header">Zapomniałeś hasło?</string>
 
     <!--  MESSGAES   -->
     <string name="email_cannot_be_empty">Pole email nie może być puste</string>

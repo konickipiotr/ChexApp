@@ -38,7 +38,8 @@
         android:roundIcon="@drawable/ico"
         android:supportsRtl="true"
         android:theme="@style/Theme.ChexApp">
-        <activity android:name=".module.registration.RegistrationActivity"></activity>
+        <activity android:name=".modules.forgotpassword.ForgotPasswordActivity" />
+        <activity android:name=".modules.registration.RegistrationActivity" />
 
         <provider
             android:name="androidx.core.content.FileProvider"
@@ -47,10 +48,10 @@
             android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_paths"></meta-data>
+                android:resource="@xml/file_paths" />
         </provider>
 
-        <activity android:name=".modules.checkplace.addphoto.AddPlacePhotoActivity"></activity>
+        <activity android:name=".modules.checkplace.addphoto.AddPlacePhotoActivity" />
         <activity android:name=".modules.checkplace.showreached.ShowReachedPlacesActivity" />
         <activity android:name=".Home" />
         <activity android:name=".MainActivity">

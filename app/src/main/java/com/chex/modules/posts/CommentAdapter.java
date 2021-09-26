@@ -1,4 +1,4 @@
-package com.chex.module.posts;
+package com.chex.modules.posts;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -16,9 +16,9 @@ import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.bumptech.glide.request.RequestOptions;
 import com.chex.R;
 import com.chex.config.Settings;
-import com.chex.module.posts.listeners.DeleteCommentListener;
-import com.chex.module.posts.model.CommentView;
-import com.chex.module.posts.model.PlaceShortView;
+import com.chex.modules.posts.listeners.DeleteCommentListener;
+import com.chex.modules.posts.model.CommentView;
+import com.chex.modules.posts.model.PlaceShortView;
 
 import java.util.List;
 
@@ -59,9 +59,7 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ViewHold
 
     @Override
     public int getItemCount() {
-        if(comments.size() < 3)
-            return comments.size();
-        return 3;
+        return Math.min(comments.size(), 3);
     }
 
     @Override

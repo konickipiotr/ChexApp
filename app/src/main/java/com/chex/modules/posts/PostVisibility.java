@@ -1,4 +1,4 @@
-package com.chex.module.posts;
+package com.chex.modules.posts;
 
 public enum  PostVisibility {
     PRIVATE,

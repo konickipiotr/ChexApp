@@ -7,13 +7,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.location.Location;
 import android.os.Bundle;
 import android.widget.Button;
-import android.widget.TextView;
 
-import com.chex.module.posts.GetPostsAsync;
-import com.chex.module.posts.PostUpdater;
+import com.chex.modules.posts.GetPostsAsync;
+import com.chex.modules.posts.PostUpdater;
 import com.chex.modules.checkplace.CheckPlaceView;
 import com.chex.modules.checkplace.LocationCatcher;
-import com.chex.utils.ListWrapper;
 
 import java.util.List;
 

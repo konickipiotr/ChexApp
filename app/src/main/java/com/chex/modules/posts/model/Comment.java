@@ -1,4 +1,4 @@
-package com.chex.module.posts.model;
+package com.chex.modules.posts.model;
 
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
