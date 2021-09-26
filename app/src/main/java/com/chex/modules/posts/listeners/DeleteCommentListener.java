@@ -1,4 +1,4 @@
-package com.chex.module.posts.listeners;
+package com.chex.modules.posts.listeners;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -7,8 +7,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.chex.config.Settings;
-import com.chex.module.posts.ItemRemover;
-import com.chex.module.posts.PostUpdater;
+import com.chex.modules.posts.ItemRemover;
 import com.chex.utils.HttpRequestUtils;
 
 import org.springframework.http.HttpEntity;

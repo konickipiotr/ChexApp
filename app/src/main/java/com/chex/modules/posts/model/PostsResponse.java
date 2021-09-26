@@ -1,4 +1,4 @@
-package com.chex.module.posts.model;
+package com.chex.modules.posts.model;
 
 import java.util.List;
 

@@ -1,7 +1,7 @@
-package com.chex.module.posts;
+package com.chex.modules.posts;
 
 import android.app.Activity;
-import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,12 +19,13 @@ import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.bumptech.glide.request.RequestOptions;
 import com.chex.R;
 import com.chex.config.Settings;
-import com.chex.module.posts.listeners.AddCommentListener;
-import com.chex.module.posts.listeners.ChangeStarListener;
-import com.chex.module.posts.listeners.DeletePostListener;
-import com.chex.module.posts.model.PostPhoto;
-import com.chex.module.posts.model.PostView;
+import com.chex.modules.posts.listeners.AddCommentListener;
+import com.chex.modules.posts.listeners.ChangeStarListener;
+import com.chex.modules.posts.listeners.DeletePostListener;
+import com.chex.modules.posts.model.PostPhoto;
+import com.chex.modules.posts.model.PostView;
 
+import java.io.FileNotFoundException;
 import java.util.List;
 
 public class MiniPostAdapter extends RecyclerView.Adapter<MiniPostAdapter.ViewHolder> implements ItemRemover {
@@ -52,10 +53,12 @@ public class MiniPostAdapter extends RecyclerView.Adapter<MiniPostAdapter.ViewHo
 
         holder.tv_authorName.setText(postView.getAuthorName());
         holder.tv_postDate.setText(postView.getCreatedAt());
+
         Glide.with(activity)
                 .load(Settings.domain + postView.getAuthorPhoto())
                 .apply(RequestOptions.bitmapTransform(new RoundedCorners(14)))
                 .into(holder.authorPhoto);
+
 
         holder.placesView.setLayoutManager(new LinearLayoutManager(activity));
         holder.subplacesView.setLayoutManager(new LinearLayoutManager(activity));

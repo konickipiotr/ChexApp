@@ -1,4 +1,4 @@
-package com.chex.module.registration;
+package com.chex.modules.registration;
 
 import androidx.appcompat.app.AppCompatActivity;
 

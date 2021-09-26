@@ -1,19 +1,17 @@
-package com.chex.module.posts.listeners;
+package com.chex.modules.posts.listeners;
 
 import android.app.Activity;
 import android.os.AsyncTask;
 import android.view.View;
 import android.widget.EditText;
 
-import com.chex.R;
 import com.chex.config.Settings;
-import com.chex.module.posts.PostUpdater;
-import com.chex.module.posts.model.Comment;
+import com.chex.modules.posts.PostUpdater;
+import com.chex.modules.posts.model.Comment;
 import com.chex.utils.HttpRequestUtils;
 
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
 import org.springframework.web.client.RestTemplate;
 
 import java.time.LocalDateTime;
@@ -53,7 +51,7 @@ public class AddCommentListener implements View.OnClickListener {
             HttpHeaders requestHeaders = requestUtils.getRequestHeaders();
             RestTemplate restTemplate = requestUtils.getRestTemplate();
             String path = Settings.ROOT_PATH + "/post/comment/";
-            restTemplate.postForEntity(path,  new HttpEntity<Comment>(comment, requestHeaders), Void.class);
+            restTemplate.postForEntity(path, new HttpEntity<>(comment, requestHeaders), Void.class);
             return null;
         }
 

@@ -15,7 +15,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.chex.authentication.AuthenticationHandler;
-import com.chex.module.registration.RegistrationActivity;
+import com.chex.modules.registration.RegistrationActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -46,9 +46,7 @@ public class MainActivity extends AppCompatActivity {
         if(ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED){
             Log.i("eeeee", "errrrprrr");
         }else {
-            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
-                requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, PERMISSION_FINE_LOCATION);
-            }
+            requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, PERMISSION_FINE_LOCATION);
         }
 
 //        String login = "user1";
@@ -79,9 +77,7 @@ public class MainActivity extends AppCompatActivity {
         error_message = findViewById(R.id.login_error_message);
         info_message = findViewById(R.id.info_message);
 
-        registerBtn.setOnClickListener(v -> {
-            startActivity(new Intent(MainActivity.this, RegistrationActivity.class));
-        });
+        registerBtn.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, RegistrationActivity.class)));
 
         signinBtn.setOnClickListener(v -> {
             error_message.setVisibility(View.GONE);

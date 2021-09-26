@@ -1,6 +1,6 @@
 package com.chex.modules.checkplace;
 
-import com.chex.module.posts.PostVisibility;
+import com.chex.modules.posts.PostVisibility;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
