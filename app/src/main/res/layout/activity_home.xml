@@ -37,4 +37,5 @@
             android:paddingBottom="0dp"
             android:text="@string/btnCheck" />
     </LinearLayout>
+
 </RelativeLayout>

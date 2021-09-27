@@ -20,6 +20,7 @@ public class CheckPlaceView implements Serializable {
     private LocalDateTime timestamp;
     private String image;
     private int points;
+    private int userrating;
 
     public CheckPlaceView() {
     }
@@ -70,5 +71,13 @@ public class CheckPlaceView implements Serializable {
 
     public void setPoints(int points) {
         this.points = points;
+    }
+
+    public int getUserrating() {
+        return userrating;
+    }
+
+    public void setUserrating(int userrating) {
+        this.userrating = userrating;
     }
 }

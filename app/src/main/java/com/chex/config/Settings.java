@@ -1,5 +1,7 @@
 package com.chex.config;
 
+import android.graphics.Bitmap;
+
 import com.chex.user.User;
 
 public class Settings {
@@ -7,6 +9,7 @@ public class Settings {
     public static String username;
     public static String password;
     public static User user;
+    public static Bitmap profilePhotoBitmap;
 
     //public static String domain = "http://80.211.245.217:8080";
     public static String domain = "http://10.0.2.2:8080";

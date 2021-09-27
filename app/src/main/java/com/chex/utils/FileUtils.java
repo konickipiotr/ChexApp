@@ -7,6 +7,8 @@ import android.net.Uri;
 import android.os.Environment;
 import android.util.Base64;
 
+import com.chex.utils.exceptions.WrongPhotoTypeException;
+
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
@@ -16,12 +18,18 @@ import java.util.Date;
 
 public class FileUtils {
 
-    private static final int LONGER_EDGE_SIZE = 2500;
 
-    public static File createImageFile(Activity context) throws IOException {
-        // Create an image file name  /storage/emulated/0/Android/data/com.myweddi/files/Pictures
+
+    public static File createImageFile(Activity context, PhotoType photoType) throws IOException {
+        // Create an image file name  /storage/emulated/0/Android/data/com.chex/files/Pictures
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
-        String imageFileName = "JPEG_" + timeStamp + "_";
+        String imageFileName = "";
+
+        switch (photoType){
+            case POST: imageFileName = "JPEG_" + timeStamp + "_";break;
+            case PROFILE: imageFileName = "profilePhoto";break;
+            default: throw new WrongPhotoTypeException();
+        }
         File storageDir = context.getExternalFilesDir(Environment.DIRECTORY_PICTURES);
         File file = File.createTempFile(
                 imageFileName,  /* prefix */
@@ -31,13 +39,13 @@ public class FileUtils {
         return file;
     }
 
-    public static Bitmap getBitmapFromStorage(Uri uri, Activity mContext){
+    public static Bitmap getBitmapFromStorage(Uri uri, Activity mContext, int longerEdgeSize){
         InputStream inputStream = null;
         Bitmap bitmap = null;
         try {
             inputStream = mContext.getContentResolver().openInputStream(uri);
             bitmap = BitmapFactory.decodeStream(inputStream);
-            bitmap = compressBitmap(bitmap);
+            bitmap = compressBitmap(bitmap, longerEdgeSize);
             inputStream.close();
         } catch (IOException e) {
             e.printStackTrace();
@@ -45,13 +53,13 @@ public class FileUtils {
         return bitmap;
     }
 
-    public static Bitmap compressBitmap(Bitmap bitmap){
+    public static Bitmap compressBitmap(Bitmap bitmap, int longerEdgeSize){
         if(bitmap == null)
             return null;
 
         int longer = getLongerEdge(bitmap);
 
-        while (longer > LONGER_EDGE_SIZE){
+        while (longer > longerEdgeSize){
             int width = bitmap.getWidth();
             int height = bitmap.getHeight();
             width -= (int) (width * 0.1f);

@@ -27,6 +27,8 @@ import com.chex.config.Settings;
 import com.chex.modules.checkplace.AchievedPlaceDTO;
 import com.chex.modules.checkplace.UploadPlaceAsync;
 import com.chex.utils.FileUtils;
+import com.chex.utils.LongerEdge;
+import com.chex.utils.PhotoType;
 
 import java.io.File;
 import java.io.IOException;
@@ -131,7 +133,7 @@ public class AddPlacePhotoActivity extends AppCompatActivity {
                 // Create the File where the photo should go
                 File photoFile = null;
                 try {
-                    photoFile = FileUtils.createImageFile(this);
+                    photoFile = FileUtils.createImageFile(this, PhotoType.POST);
                 } catch (IOException ex) {
                     // Error occurred while creating the File
                 }
@@ -199,7 +201,7 @@ public class AddPlacePhotoActivity extends AppCompatActivity {
         }
 
         if(requestCode == Settings.CAMERA_SRC){
-            Bitmap bitmapFromStorage = FileUtils.getBitmapFromStorage(tempUri, AddPlacePhotoActivity.this);
+            Bitmap bitmapFromStorage = FileUtils.getBitmapFromStorage(tempUri, AddPlacePhotoActivity.this, LongerEdge.LARGE);
             if(bitmapFromStorage == null) return;
             bitmapList.add(bitmapFromStorage);
 
@@ -209,7 +211,7 @@ public class AddPlacePhotoActivity extends AppCompatActivity {
         }else if(requestCode == Settings.STORAGE_SRC){
             if(data == null) return;
             Uri selectedImageUri = data.getData();
-            Bitmap bitmapFromStorage = FileUtils.getBitmapFromStorage(selectedImageUri, AddPlacePhotoActivity.this);
+            Bitmap bitmapFromStorage = FileUtils.getBitmapFromStorage(selectedImageUri, AddPlacePhotoActivity.this, LongerEdge.LARGE);
             bitmapList.add(bitmapFromStorage);
 
             photosList.get(idx).setImageBitmap(bitmapFromStorage);

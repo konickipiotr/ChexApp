@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/bHome"
+        android:icon="@drawable/home"
+        android:title="Itemme"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/bMenu"
+        android:icon="@android:drawable/ic_dialog_dialer"
+        android:title="Menu"
+        app:showAsAction="always" >
+        <menu>
+            <item
+                android:id="@+id/bInfo"
+                android:title="yy" />
+<!--                android:icon="@drawable/info"-->
+<!--                android:title="@string/menu_info" />-->
+
+            <item
+                android:id="@+id/bGifts"
+                android:title="zz" />
+<!--                android:icon="@drawable/gifts"-->
+<!--                android:title="@string/menu_gift" />-->
+
+            <item
+                android:id="@+id/bTable"
+                android:title="xx" />
+<!--                android:icon="@drawable/tables"-->
+<!--                android:title="@string/menu_table" />-->
+
+        </menu>
+    </item>
+
+    <item
+        android:id="@+id/bSettings"
+        android:icon="@drawable/settings"
+        android:title="Menu"
+        app:showAsAction="always">
+
+        <menu>
+            <item
+                android:id="@+id/bLogout"
+                android:icon="@drawable/logout"
+                android:title="Wyloguj"/>
+
+            <item
+                android:id="@+id/bOptions"
+                android:icon="@drawable/settings"
+                android:title="Ustawienia"/>
+
+
+        </menu>
+    </item>
+</menu>

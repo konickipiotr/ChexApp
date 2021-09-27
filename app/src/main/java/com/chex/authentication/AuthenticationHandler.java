@@ -63,9 +63,9 @@ public class AuthenticationHandler extends AsyncTask<String, Void, String> {
             Settings.username = username;
             Settings.password = password;
 
-            path = Settings.ROOT_PATH + "/user";
-            ResponseEntity<User> response2 = restTemplate.exchange(path, HttpMethod.GET, new HttpEntity<>(requestHeaders), User.class);
-            Settings.user = response2.getBody();
+//            path = Settings.ROOT_PATH + "/user";
+//            ResponseEntity<User> response2 = restTemplate.exchange(path, HttpMethod.GET, new HttpEntity<>(requestHeaders), User.class);
+//            Settings.user = response2.getBody();
 
         }catch (HttpClientErrorException e){
             ret = context.getResources().getString(R.string.wrong_credentials);

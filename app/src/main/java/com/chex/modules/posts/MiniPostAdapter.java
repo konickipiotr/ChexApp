@@ -54,10 +54,17 @@ public class MiniPostAdapter extends RecyclerView.Adapter<MiniPostAdapter.ViewHo
         holder.tv_authorName.setText(postView.getAuthorName());
         holder.tv_postDate.setText(postView.getCreatedAt());
 
-        Glide.with(activity)
-                .load(Settings.domain + postView.getAuthorPhoto())
-                .apply(RequestOptions.bitmapTransform(new RoundedCorners(14)))
-                .into(holder.authorPhoto);
+        if(postView.getAuthorPhoto() == null || postView.getAuthorPhoto().isEmpty()){
+            Glide.with(activity)
+                    .load(activity.getDrawable(R.drawable.user))
+                    .circleCrop()
+                    .into(holder.authorPhoto);
+        }else {
+            Glide.with(activity)
+                    .load(Settings.domain + postView.getAuthorPhoto())
+                    .apply(RequestOptions.bitmapTransform(new RoundedCorners(14)))
+                    .into(holder.authorPhoto);
+        }
 
 
         holder.placesView.setLayoutManager(new LinearLayoutManager(activity));
@@ -88,6 +95,8 @@ public class MiniPostAdapter extends RecyclerView.Adapter<MiniPostAdapter.ViewHo
         if(!photos.isEmpty()) {
             Glide.with(activity).load(Settings.domain + photos.get(0).getWebAppPath()).into(holder.firstPhoto);
         }
+
+        holder.tv_description.setText(postView.getDescription());
 
         holder.starOff.setOnClickListener(new ChangeStarListener(holder.starOff,holder.starOn, holder.tv_starnum, postView.getId()));
         holder.starOn.setOnClickListener(new ChangeStarListener(holder.starOff,holder.starOn, holder.tv_starnum, postView.getId()));

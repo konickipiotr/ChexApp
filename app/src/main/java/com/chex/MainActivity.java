@@ -15,6 +15,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.chex.authentication.AuthenticationHandler;
+import com.chex.modules.forgotpassword.ForgotPasswordActivity;
 import com.chex.modules.registration.RegistrationActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -40,18 +41,15 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-
-
-
         if(ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED){
             Log.i("eeeee", "errrrprrr");
         }else {
             requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, PERMISSION_FINE_LOCATION);
         }
 
-//        String login = "user1";
-//        String pass = "11";
-//        new AuthenticationHandler(this).execute(login, pass);
+        String login = "user1";
+        String pass = "11";
+        new AuthenticationHandler(this).execute(login, pass);
 
     }
 
@@ -76,8 +74,11 @@ public class MainActivity extends AppCompatActivity {
         registerBtn = findViewById(R.id.register_btn);
         error_message = findViewById(R.id.login_error_message);
         info_message = findViewById(R.id.info_message);
+        forgotPassBtn = findViewById(R.id.forgotpass_btn);
 
         registerBtn.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, RegistrationActivity.class)));
+        forgotPassBtn.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, ForgotPasswordActivity.class)));
+
 
         signinBtn.setOnClickListener(v -> {
             error_message.setVisibility(View.GONE);

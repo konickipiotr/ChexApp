@@ -13,6 +13,11 @@ public class User {
     private String imgurl;
     private String imgpath;
 
+    private int exp;
+    private int level;
+    private int nextlevel;
+    private String title;
+
     public String getName(){
         return this.firstname + " " + this.lastname;
     }
@@ -71,5 +76,37 @@ public class User {
 
     public void setImgpath(String imgpath) {
         this.imgpath = imgpath;
+    }
+
+    public int getExp() {
+        return exp;
+    }
+
+    public void setExp(int exp) {
+        this.exp = exp;
+    }
+
+    public int getLevel() {
+        return level;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
+    }
+
+    public int getNextlevel() {
+        return nextlevel;
+    }
+
+    public void setNextlevel(int nextlevel) {
+        this.nextlevel = nextlevel;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 }

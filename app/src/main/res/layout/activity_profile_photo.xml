@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".modules.changeprofilephoto.ProfilePhotoActivity">
+
+    <ImageButton
+        android:id="@+id/makeprofilephoto_take_picture"
+        android:layout_width="0dp"
+        android:layout_height="70dp"
+        android:layout_marginLeft="3dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="2dp"
+        android:background="@color/dark_green_btn"
+        android:scaleType="fitCenter"
+        app:layout_constraintEnd_toStartOf="@+id/makeprofilephoto_from_gallery"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/ic_menu_camera" />
+
+    <ImageButton
+        android:id="@+id/makeprofilephoto_delete_photo"
+        android:layout_width="0dp"
+        android:layout_height="70dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginRight="3dp"
+        android:background="@color/dark_green_btn"
+        android:scaleType="fitCenter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/makeprofilephoto_from_gallery"
+        app:layout_constraintTop_toTopOf="@+id/makeprofilephoto_from_gallery"
+        app:srcCompat="@android:drawable/ic_menu_delete" />
+
+    <ImageButton
+        android:id="@+id/makeprofilephoto_from_gallery"
+        android:layout_width="0dp"
+        android:layout_height="70dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginRight="2dp"
+        android:background="@color/dark_green_btn"
+        android:scaleType="fitCenter"
+        app:layout_constraintEnd_toStartOf="@+id/makeprofilephoto_delete_photo"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/makeprofilephoto_take_picture"
+        app:layout_constraintTop_toTopOf="@+id/makeprofilephoto_take_picture"
+        app:srcCompat="@android:drawable/ic_menu_gallery" />
+
+    <ImageView
+        android:id="@+id/makeprofilephoto_photo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="42dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/makeprofilephoto_from_gallery"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <Button
+        android:id="@+id/makeprofilephoto_cancel"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:layout_marginLeft="3dp"
+        android:layout_marginRight="2dp"
+        android:padding="3dp"
+        android:text="@string/btnCancel"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/makeprofilephoto_next"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/makeprofilephoto_next"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginRight="3dp"
+        android:padding="3dp"
+        android:text="@string/btnChange"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/makeprofilephoto_cancel"
+        app:layout_constraintTop_toTopOf="@+id/makeprofilephoto_cancel" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

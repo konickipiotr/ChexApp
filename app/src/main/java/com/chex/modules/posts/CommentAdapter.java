@@ -43,10 +43,19 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ViewHold
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         CommentView cv = comments.get(position);
-        Glide.with(context)
-                .load(Settings.domain + cv.getAuthorPhoto())
-                .apply(RequestOptions.bitmapTransform(new RoundedCorners(14)))
-                .into(holder.commentAuthorImg);
+
+        if(cv.getAuthorPhoto() == null || cv.getAuthorPhoto().isEmpty()){
+            Glide.with(context)
+                    .load(context.getDrawable(R.drawable.user))
+                    .apply(RequestOptions.bitmapTransform(new RoundedCorners(14)))
+                    .into(holder.commentAuthorImg);
+        }else {
+            Glide.with(context)
+                    .load(Settings.domain + cv.getAuthorPhoto())
+                    .apply(RequestOptions.bitmapTransform(new RoundedCorners(14)))
+                    .into(holder.commentAuthorImg);
+        }
+
         holder.commentAuthor.setText(cv.getAuthorName());
         holder.commentDate.setText(cv.getCreatedAt());
         holder.commentContent.setText(cv.getContent());

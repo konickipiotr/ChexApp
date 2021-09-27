@@ -17,6 +17,7 @@
     <string name="takePhoto">Zrób zdjęcie</string>
 
     <string name="btnCheck">CHECK</string>
+    <string name="btnResetPass">Resetuj hasło</string>
 
     <string name="firstname">Imię</string>
     <string name="lastname">Nazwisko</string>
@@ -31,6 +32,9 @@
     <string name="forgot_password_header">Zapomniałeś hasło?</string>
 
     <!--  MESSGAES   -->
+    <string name="something_went_wrong">Coś poszło nie tak</string>
+    <string name="email_not_found">Nie znaleziono takiego adresu email</string>
+
     <string name="email_cannot_be_empty">Pole email nie może być puste</string>
     <string name="email_is_not_email">Błedny adres email</string>
     <string name="password_cannot_be_empty">Hasło nie może być puste</string>
@@ -44,4 +48,20 @@
 
 
     <string name="activation_code_sent">Na adres %s został wysłany kod aktywacyjny</string>
+    <string name="reset_password_info_sent">Na adres %s został wysłany link do resetowania hasła</string>
+
+    <string name="take_a_photo">Zrób zdjęcie</string>
+    <string name="choose_from_gallery">Wybierz z galerii</string>
+    <string name="delete_photo">Usuń zdjęcie</string>
+    <string name="write_something">Napisz coś ...</string>
+
+    <string name="you_visited_male">Odwiedziłeś</string>
+    <string name="you_visited_female">Odwiedziłaś</string>
+    <string name="how_do_you_rate_this_place">Jak oceniasz to miejsce?</string>
+    <string name="exp">Exp: </string>
+
+
+    <string name="btnCancel">Anuluj</string>
+    <string name="btnChange">Zmień</string>
+
 </resources>

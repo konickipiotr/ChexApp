@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/registration_scrollview_root"
     android:layout_width="match_parent"
-    android:layout_height="48dp"
-    android:background="@color/green_bg">
+    android:layout_height="match_parent"
+    android:background="@color/light_green_bg">
 
     <LinearLayout
         android:id="@+id/registration_root_layout"
@@ -192,7 +193,8 @@
                 android:id="@+id/send_form_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/registerBtn" />
+                android:text="@string/registerBtn"
+                app:iconTint="@color/green_bg" />
 
         </LinearLayout>
 
