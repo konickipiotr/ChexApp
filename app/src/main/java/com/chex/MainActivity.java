@@ -53,20 +53,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-//    @Override
-//    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-//        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-//
-//        switch (requestCode){
-//            case PERMISSION_FINE_LOCATION:
-//                if(grantResults[0] == PackageManager.PERMISSION_GRANTED){
-//
-//                }else {
-//                    Toast.makeText(this, "This app requires permission to be granted in order to work properly", Toast.LENGTH_SHORT).show();
-//                }
-//        }
-//    }
-
     private void init() {
         username = findViewById(R.id.login_username_input);
         password = findViewById(R.id.login_password_input);

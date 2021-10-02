@@ -21,6 +21,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 
 public class CheckPlaceAsync extends AsyncTask<Coords, Void, CheckPlaceResponse> {
+
     @Override
     protected CheckPlaceResponse doInBackground(Coords... coords) {
         Coords coord = coords[0];
@@ -36,6 +37,7 @@ public class CheckPlaceAsync extends AsyncTask<Coords, Void, CheckPlaceResponse>
         ObjectMapper mapper = new ObjectMapper();
         mapper.registerModule(new JavaTimeModule());
 
+
         CheckPlaceResponse ret = new CheckPlaceResponse();
         try {
             ResponseEntity<CheckPlaceResponse> response = restTemplate.exchange(build.toUriString(), HttpMethod.GET, new HttpEntity<>(requestHeaders), CheckPlaceResponse.class);
@@ -50,4 +52,8 @@ public class CheckPlaceAsync extends AsyncTask<Coords, Void, CheckPlaceResponse>
         }
         return ret;
     }
+
+
+
+
 }

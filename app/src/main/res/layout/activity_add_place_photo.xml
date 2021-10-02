@@ -28,7 +28,7 @@
                 android:contentDescription="@string/choose_from_gallery"
                 android:gravity="center"
                 android:padding="5dp"
-                android:text="Dodaj coś od siebie"
+                android:text="@string/label_add_something_from_you"
                 android:textColor="@color/super_light_grey"
                 android:textSize="24sp"
                 android:textStyle="bold" />
@@ -143,8 +143,10 @@
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/dark_green_btn"
                 android:contentDescription="@string/delete_photo"
+                android:visibility="gone"
                 app:srcCompat="@android:drawable/ic_menu_delete"
-                app:tint="@color/light_yellow" />
+                app:tint="@color/light_yellow"
+                tools:visibility="visible" />
 
             <EditText
                 android:id="@+id/description"
@@ -154,8 +156,10 @@
                 android:background="@drawable/rounded_edittext"
                 android:ems="10"
                 android:gravity="start|top"
+                android:includeFontPadding="true"
                 android:inputType="textMultiLine"
-                android:minHeight="50dp" />
+                android:minHeight="50dp"
+                android:padding="5dp" />
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
@@ -174,7 +178,7 @@
             android:layout_marginLeft="3dp"
             android:layout_marginRight="3dp"
             android:layout_weight="1"
-            android:text="Anuluj" />
+            android:text="@string/btnCancel" />
 
         <Button
             android:id="@+id/bPublish"
@@ -183,7 +187,7 @@
             android:layout_marginLeft="3dp"
             android:layout_marginRight="3dp"
             android:layout_weight="1"
-            android:text="Publikuj" />
+            android:text="@string/btn_publish" />
     </LinearLayout>
 
 </RelativeLayout>

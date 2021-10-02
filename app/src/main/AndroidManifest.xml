@@ -39,6 +39,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ChexApp">
         <activity
+            android:name=".modules.posts.PostActivity"
+            android:exported="true" />
+        <activity
+            android:name=".modules.profile.ProfileActivity"
+            android:exported="true" />
+        <activity
             android:name=".modules.changeprofilephoto.ProfilePhotoActivity"
             android:exported="true" />
         <activity android:name=".modules.forgotpassword.ForgotPasswordActivity" />

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -20,22 +21,52 @@
             android:layout_height="wrap_content" />
     </androidx.core.widget.NestedScrollView>
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/main_buttons_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:gravity="center"
-        android:orientation="horizontal">
+        android:gravity="center">
 
         <Button
             android:id="@+id/chech_btn"
-            android:layout_width="200dp"
+            android:layout_width="0dp"
             android:layout_height="100dp"
-            android:layout_weight="0"
             android:background="@drawable/check_btn"
             android:paddingBottom="0dp"
-            android:text="@string/btnCheck" />
-    </LinearLayout>
+            android:text="@string/btnCheck"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/other_btn"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/profile_btn" />
+
+        <Button
+            android:id="@+id/profile_btn"
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
+            android:background="@drawable/check_btn"
+            android:paddingBottom="0dp"
+            android:text="Profil"
+            app:layout_constraintBottom_toBottomOf="@+id/chech_btn"
+            app:layout_constraintEnd_toStartOf="@+id/chech_btn"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/other_btn"
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
+            android:background="@drawable/check_btn"
+            android:paddingBottom="0dp"
+            android:text="jeszcze nic"
+            app:layout_constraintBottom_toBottomOf="@+id/chech_btn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/chech_btn" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </RelativeLayout>

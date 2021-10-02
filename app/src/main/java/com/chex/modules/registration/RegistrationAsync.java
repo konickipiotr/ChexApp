@@ -18,9 +18,6 @@ public class RegistrationAsync extends AsyncTask<RegistrationForm, Void, Boolean
         RestTemplate restTemplate = new HttpRequestUtils().getRestTemplate();
 
         ResponseEntity<Void> responseEntity = restTemplate.postForEntity(path, registrationForms[0], Void.class);
-        if(responseEntity.getStatusCode().equals(HttpStatus.FOUND))
-            return true;
-
-        return false;
+        return responseEntity.getStatusCode().equals(HttpStatus.FOUND);
     }
 }

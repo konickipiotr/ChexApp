@@ -3,6 +3,7 @@ package com.chex.utils;
 import android.app.Activity;
 import android.widget.ImageView;
 
+
 import com.bumptech.glide.Glide;
 import com.chex.config.Settings;
 

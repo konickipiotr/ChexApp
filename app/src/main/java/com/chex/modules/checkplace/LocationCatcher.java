@@ -9,12 +9,10 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 
 import com.chex.Home;
-import com.chex.MainActivity;
 import com.chex.R;
 import com.chex.modules.checkplace.showreached.ShowReachedPlacesActivity;
 import com.chex.utils.Coords;
-import com.chex.utils.RetStatus;
-import com.chex.utils.ReturnAsync;
+import com.chex.utils.LoadingDialog;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
@@ -22,7 +20,6 @@ import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
 
 import java.io.Serializable;
-import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 public class LocationCatcher {
@@ -36,15 +33,19 @@ public class LocationCatcher {
         public void onLocationResult(@NonNull LocationResult locationResult) {
             super.onLocationResult(locationResult);
 
+            LoadingDialog dialog = new LoadingDialog(activity);
+            dialog.startLoadingDialog();
             Location lastLocation = locationResult.getLastLocation();
             Coords coords = new Coords(lastLocation);
 
             try {
                 CheckPlaceResponse ret = new CheckPlaceAsync().execute(coords).get();
+                dialog.dismissDialog();
                 switch (ret.getResponseStatus()){
                     case FOUND:{
                         Intent intent = new Intent(activity, ShowReachedPlacesActivity.class);
                         intent.putExtra("places", (Serializable) ret.getCheckPlaceViewList());
+                        intent.putExtra("achievements", (Serializable) ret.getAchievementShortViews());
                         activity.finish();
                         activity.startActivity(intent);
                     }break;
@@ -55,9 +56,7 @@ public class LocationCatcher {
                         Toast.makeText(activity.getApplicationContext(), R.string.unknown_error_occured, Toast.LENGTH_LONG).show();
                 }
 
-            }catch (ExecutionException e) {
-                e.printStackTrace();
-            } catch (InterruptedException e) {
+            }catch (ExecutionException | InterruptedException e) {
                 e.printStackTrace();
             }
 

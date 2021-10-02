@@ -1,19 +1,17 @@
 package com.chex.modules.checkplace.addphoto;
 
 import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 
 import com.chex.R;
 
 public class TouchedPhotoToRemoveListener implements View.OnTouchListener {
 
-    private AddPlacePhotoActivity activity;
-    private int idx = 1;
+    private final AddPlacePhotoActivity activity;
+    private final int idx;
 
     public TouchedPhotoToRemoveListener(AddPlacePhotoActivity activity, int idx) {
         this.activity = activity;

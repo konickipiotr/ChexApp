@@ -20,13 +20,13 @@ import java.util.List;
 
 public class ShowReachedAdapter extends RecyclerView.Adapter<ShowReachedAdapter.ViewHolder> {
 
-    private List<CheckPlaceView> list;
-    private Context context;
+    private final List<CheckPlaceView> list;
+    private final Context context;
 
     public class ViewHolder extends RecyclerView.ViewHolder{
-        private TextView placeName, label, points, ratinglabel;
-        private ImageView photo;
-        private RatingBar ratingBar;
+        private final TextView placeName, label, points, ratinglabel;
+        private final ImageView photo;
+        private final RatingBar ratingBar;
 
         public ViewHolder(View view){
             super(view);
@@ -36,7 +36,6 @@ public class ShowReachedAdapter extends RecyclerView.Adapter<ShowReachedAdapter.
             points = view.findViewById(R.id.checkelement_points);
             ratingBar = view.findViewById(R.id.place_rating);
             ratinglabel = view.findViewById(R.id.checkelement_ratinglabel);
-
         }
 
         public TextView getPlaceName() {
@@ -74,12 +73,9 @@ public class ShowReachedAdapter extends RecyclerView.Adapter<ShowReachedAdapter.
         if(!id.endsWith(".00000")){
             holder.ratingBar.setVisibility(View.VISIBLE);
             holder.ratinglabel.setVisibility(View.VISIBLE);
-            holder.ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
-                @Override
-                public void onRatingChanged(RatingBar ratingBar, float v, boolean b) {
-                    if(b){
-                        placeView.setUserrating((int)v);
-                    }
+            holder.ratingBar.setOnRatingBarChangeListener((ratingBar, v, b) -> {
+                if(b){
+                    placeView.setUserrating((int)v);
                 }
             });
         }

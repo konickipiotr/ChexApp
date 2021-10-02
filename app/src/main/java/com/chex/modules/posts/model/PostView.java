@@ -1,9 +1,10 @@
 package com.chex.modules.posts.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PostView {
+public class PostView implements Serializable {
     private Long id;
     private Long authorId;
     private boolean isAuthor;
@@ -16,7 +17,7 @@ public class PostView {
     private List<PlaceShortView> places = new ArrayList<>();
     private List<PlaceShortView> subPlaces = new ArrayList<>();
     private List<CommentView> commentViews = new ArrayList<>();
-    private List<PlaceShortView> achievements = new ArrayList<>();
+    private List<com.chex.modules.Achievements.AchievementShortView> achievements = new ArrayList<>();
     private List<PostPhoto> photos = new ArrayList<>();
 
     public PostView() {
@@ -118,11 +119,11 @@ public class PostView {
         this.commentViews = commentViews;
     }
 
-    public List<PlaceShortView> getAchievements() {
+    public List<com.chex.modules.Achievements.AchievementShortView> getAchievements() {
         return achievements;
     }
 
-    public void setAchievements(List<PlaceShortView> achievements) {
+    public void setAchievements(List<com.chex.modules.Achievements.AchievementShortView> achievements) {
         this.achievements = achievements;
     }
 

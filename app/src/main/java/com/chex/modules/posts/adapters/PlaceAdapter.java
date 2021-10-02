@@ -1,4 +1,4 @@
-package com.chex.modules.posts;
+package com.chex.modules.posts.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -14,14 +14,13 @@ import com.bumptech.glide.Glide;
 import com.chex.R;
 import com.chex.config.Settings;
 import com.chex.modules.posts.model.PlaceShortView;
-import com.chex.modules.posts.model.PostView;
 
 import java.util.List;
 
 public class PlaceAdapter extends RecyclerView.Adapter<PlaceAdapter.ViewHolder> {
 
-    private Context context;
-    private List<PlaceShortView> places;
+    private final Context context;
+    private final List<PlaceShortView> places;
 
     public PlaceAdapter(Context context, List<PlaceShortView> places) {
         this.context = context;

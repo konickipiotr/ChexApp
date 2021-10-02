@@ -1,4 +1,4 @@
-package com.chex.modules.posts;
+package com.chex.modules.posts.async;
 
 
 import android.os.AsyncTask;
@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.chex.Home;
 import com.chex.config.Settings;
+import com.chex.modules.posts.adapters.MiniPostAdapter;
 import com.chex.modules.posts.model.PostView;
 import com.chex.modules.posts.model.PostsResponse;
 import com.chex.utils.HttpRequestUtils;
@@ -23,7 +24,7 @@ import java.util.List;
 
 public class GetPostsAsync extends AsyncTask<Void, Void, List<PostView>> {
 
-    private WeakReference<Home> homeReference;
+    private final WeakReference<Home> homeReference;
 
     public GetPostsAsync(Home activity) {
         this.homeReference = new WeakReference<>(activity);

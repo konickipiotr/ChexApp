@@ -31,16 +31,15 @@ public class FileUtils {
             default: throw new WrongPhotoTypeException();
         }
         File storageDir = context.getExternalFilesDir(Environment.DIRECTORY_PICTURES);
-        File file = File.createTempFile(
+        return File.createTempFile(
                 imageFileName,  /* prefix */
                 ".jpg",         /* suffix */
                 storageDir      /* directory */
         );
-        return file;
     }
 
     public static Bitmap getBitmapFromStorage(Uri uri, Activity mContext, int longerEdgeSize){
-        InputStream inputStream = null;
+        InputStream inputStream;
         Bitmap bitmap = null;
         try {
             inputStream = mContext.getContentResolver().openInputStream(uri);

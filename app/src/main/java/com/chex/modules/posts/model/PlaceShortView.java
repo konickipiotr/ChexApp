@@ -1,6 +1,8 @@
 package com.chex.modules.posts.model;
 
-public class PlaceShortView implements Comparable<PlaceShortView> {
+import java.io.Serializable;
+
+public class PlaceShortView implements Comparable<PlaceShortView>, Serializable {
 
     private String id;
     private String name;

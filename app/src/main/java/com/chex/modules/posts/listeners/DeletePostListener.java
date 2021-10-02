@@ -1,5 +1,6 @@
 package com.chex.modules.posts.listeners;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.os.AsyncTask;
@@ -7,7 +8,6 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.chex.config.Settings;
-import com.chex.modules.posts.ItemRemover;
 import com.chex.modules.posts.PostUpdater;
 import com.chex.utils.HttpRequestUtils;
 
@@ -18,16 +18,12 @@ import org.springframework.web.client.RestTemplate;
 
 public class DeletePostListener implements View.OnClickListener {
 
-    private Activity activity;
-    private Long postid;
-    private ItemRemover itemRemover;
-    private int position;
+    private final Activity activity;
+    private final Long postid;
 
-    public DeletePostListener(Activity activity, Long postid, ItemRemover itemRemover, int position) {
+    public DeletePostListener(Activity activity, Long postid) {
         this.activity = activity;
         this.postid = postid;
-        this.itemRemover = itemRemover;
-        this.position = position;
     }
 
     @Override
@@ -46,6 +42,7 @@ public class DeletePostListener implements View.OnClickListener {
         alertDialog.show();
     }
 
+    @SuppressLint("StaticFieldLeak")
     class DeletePostAsync extends AsyncTask<Void, Void, Void>{
 
         @Override

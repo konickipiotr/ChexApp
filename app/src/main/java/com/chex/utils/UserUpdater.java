@@ -9,6 +9,8 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import androidx.core.content.ContextCompat;
+
 import com.bumptech.glide.Glide;
 import com.chex.ProfilePhotoUpdater;
 import com.chex.R;
@@ -35,7 +37,7 @@ public class UserUpdater {
                 || Settings.profilePhotoBitmap == null){
 
             Glide.with(activity)
-                    .load(activity.getResources().getDrawable(R.drawable.user))
+                    .load(ContextCompat.getDrawable(activity, R.drawable.user))
                     .circleCrop()
                     .into(profilePhoto);
         }else {
@@ -59,12 +61,12 @@ public class UserUpdater {
 
         usename.setText(Settings.user.getName());
         level.setText(String.valueOf(Settings.user.getLevel()));
-        nextLevel.setText(String.valueOf(Settings.user.getNextlevel()));
+        nextLevel.setText(String.valueOf(Settings.user.getLevel() + 1));
         exp.setText(String.valueOf(Settings.user.getExp()));
 
         userTitle.setText(Settings.user.getTitle());
 
-        progressBar.setMax(Settings.user.getLevel());
+        progressBar.setMax(Settings.user.getNextlevel());
         progressBar.setMin(0);
         progressBar.setProgress(Settings.user.getExp());
 
@@ -78,7 +80,7 @@ public class UserUpdater {
 
     class GetUser extends AsyncTask<Void, Void, User> {
 
-        private ProfilePhotoUpdater profilePhotoUpdater;
+        private final ProfilePhotoUpdater profilePhotoUpdater;
 
         public GetUser(ProfilePhotoUpdater profilePhotoUpdater) {
             this.profilePhotoUpdater = profilePhotoUpdater;
@@ -117,7 +119,7 @@ public class UserUpdater {
 
     class PhotoGetter extends AsyncTask<String, Void, Bitmap>{
 
-        private ProfilePhotoUpdater profilePhotoUpdater;
+        private final ProfilePhotoUpdater profilePhotoUpdater;
 
         public PhotoGetter(ProfilePhotoUpdater profilePhotoUpdater) {
             this.profilePhotoUpdater = profilePhotoUpdater;
@@ -132,8 +134,7 @@ public class UserUpdater {
                 connection.setDoInput(true);
                 connection.connect();
                 InputStream input = connection.getInputStream();
-                Bitmap myBitmap = BitmapFactory.decodeStream(input);
-                return myBitmap;
+                return BitmapFactory.decodeStream(input);
             } catch (IOException e) {
                 return null;
             }

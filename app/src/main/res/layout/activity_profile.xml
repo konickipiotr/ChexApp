@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/profile_main_scrolview"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:fillViewport="true">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/profie_header"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/dark_grey"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/you_visited_male"
+            android:textColor="@color/super_light_grey"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_conversion_absoluteHeight="42dp"
+            tools:layout_conversion_absoluteWidth="411dp"
+            tools:layout_editor_absoluteX="69dp" />
+
+        <ImageView
+            android:id="@+id/profil_photo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/profie_header"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/profile_levelname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="TextView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.507"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/profil_photo" />
+
+        <ProgressBar
+            android:id="@+id/profile_exp_bar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="36dp"
+            android:layout_marginEnd="50dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/profile_levelname" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="lvl:"
+            app:layout_constraintBottom_toTopOf="@+id/profile_exp_bar"
+            app:layout_constraintStart_toStartOf="@+id/profile_exp_bar"
+            tools:layout_editor_absoluteX="24dp"
+            tools:layout_editor_absoluteY="138dp" />
+
+        <TextView
+            android:id="@+id/profile_nextLevel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2"
+            app:layout_constraintBottom_toTopOf="@+id/profile_exp_bar"
+            app:layout_constraintEnd_toEndOf="@+id/profile_exp_bar"
+            tools:layout_editor_absoluteX="40dp"
+            tools:layout_editor_absoluteY="119dp" />
+
+        <TextView
+            android:id="@+id/profile_currentLevel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1"
+            app:layout_constraintBottom_toTopOf="@+id/profile_exp_bar"
+            app:layout_constraintStart_toEndOf="@+id/textView7"
+            tools:layout_editor_absoluteX="134dp"
+            tools:layout_editor_absoluteY="81dp" />
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="lvl:"
+            app:layout_constraintBottom_toTopOf="@+id/profile_exp_bar"
+            app:layout_constraintEnd_toStartOf="@+id/profile_nextLevel"
+            tools:layout_editor_absoluteX="142dp"
+            tools:layout_editor_absoluteY="81dp" />
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="exp"
+            app:layout_constraintStart_toEndOf="@+id/profile_exp_points"
+            app:layout_constraintTop_toTopOf="@+id/profile_exp_points"
+            tools:layout_editor_absoluteX="182dp"
+            tools:layout_editor_absoluteY="81dp" />
+
+        <TextView
+            android:id="@+id/profile_exp_points"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="116dp"
+            android:text="200"
+            app:layout_constraintBottom_toTopOf="@+id/profile_exp_bar"
+            app:layout_constraintEnd_toStartOf="@+id/textView13"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/profile_currentLevel" />
+
+        <ImageView
+            android:id="@+id/profile_place_img"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            app:layout_constraintEnd_toStartOf="@+id/profile_achievement_img"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/profile_achievement_img"
+            app:srcCompat="@android:drawable/ic_menu_mapmode"
+            tools:srcCompat="@android:drawable/ic_menu_mapmode" />
+
+        <ImageView
+            android:id="@+id/profile_achievement_img"
+            android:layout_width="40sp"
+            android:layout_height="40sp"
+
+            android:layout_marginTop="34dp"
+            app:layout_constraintEnd_toStartOf="@+id/profile_img_firends"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/profile_place_img"
+            app:layout_constraintTop_toBottomOf="@+id/profile_exp_bar"
+            app:srcCompat="@android:drawable/ic_menu_myplaces"
+            tools:srcCompat="@android:drawable/ic_menu_myplaces" />
+
+        <ImageView
+            android:id="@+id/profile_img_firends"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/profile_achievement_img"
+            app:layout_constraintTop_toTopOf="@+id/profile_achievement_img"
+            app:srcCompat="@android:drawable/ic_menu_my_calendar"
+            tools:srcCompat="@android:drawable/ic_menu_my_calendar" />
+
+        <TextView
+            android:id="@+id/profile_place_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="0"
+            app:layout_constraintEnd_toStartOf="@+id/profile_place_img"
+            app:layout_constraintTop_toTopOf="@+id/profile_place_img" />
+
+        <TextView
+            android:id="@+id/profile_achievement_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="0"
+            app:layout_constraintEnd_toStartOf="@+id/profile_achievement_img"
+            app:layout_constraintTop_toTopOf="@+id/profile_achievement_img" />
+
+        <TextView
+            android:id="@+id/profile_friends_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="0"
+            app:layout_constraintEnd_toStartOf="@+id/profile_img_firends"
+            app:layout_constraintTop_toTopOf="@+id/profile_img_firends" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/profile_recyc_places"
+            android:layout_width="413dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/profile_places" />
+
+        <TextView
+            android:id="@+id/profile_achievements_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="Achievementy"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.506"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/profile_recyc_places" />
+
+        <TextView
+            android:id="@+id/profile_last_three_visited_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="48dp"
+            android:text="Ostatnie 3 miejsca"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/profile_achievement_img" />
+
+        <TextView
+            android:id="@+id/profile_places"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="23dp"
+            android:text="Miejsca"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/profile_recyc_last_three" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/profile_recyc_last_three"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="26dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/profile_last_three_visited_label" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/profile_recyc_achievements"
+            android:layout_width="443dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/profile_achievements_label" />
+
+        <TextView
+            android:id="@+id/profile_achievemet_in_progress_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="48dp"
+            android:text="achievementy in progress"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.501"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/profile_recyc_achievements" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/profile_recyc_arch_in_progress"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/profile_achievemet_in_progress_label" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

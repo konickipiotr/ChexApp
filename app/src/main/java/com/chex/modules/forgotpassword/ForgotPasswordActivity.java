@@ -12,7 +12,6 @@ import android.widget.TextView;
 import com.chex.MainActivity;
 import com.chex.R;
 import com.chex.config.Settings;
-import com.chex.modules.registration.RegistrationActivity;
 import com.chex.utils.HttpRequestUtils;
 
 import org.springframework.http.HttpStatus;
@@ -20,12 +19,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.HashMap;
 import java.util.concurrent.ExecutionException;
 
 public class ForgotPasswordActivity extends AppCompatActivity {
 
-    private Button send_btn;
     private EditText email;
     private TextView error_msg;
 
@@ -37,7 +34,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
     }
 
     private void init(){
-        send_btn = findViewById(R.id.fg_send_btn);
+        Button send_btn = findViewById(R.id.fg_send_btn);
         email = findViewById(R.id.fg_email);
         error_msg = findViewById(R.id.fg_msg_error);
 
@@ -67,7 +64,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
         });
     }
 
-    class ResetPassword extends AsyncTask<String, Void, Boolean>{
+    static class ResetPassword extends AsyncTask<String, Void, Boolean>{
 
         @Override
         protected Boolean doInBackground(String... strings) {

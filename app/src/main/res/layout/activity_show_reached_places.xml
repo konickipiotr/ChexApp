@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/light_green_bg"
-    android:orientation="vertical"
     tools:context=".modules.checkplace.showreached.ShowReachedPlacesActivity">
+
 
     <TextView
         android:id="@+id/tvHeader"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@color/dark_grey"
         android:gravity="center"
@@ -17,52 +17,70 @@
         android:text="@string/you_visited_male"
         android:textColor="@color/super_light_grey"
         android:textSize="24sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_conversion_absoluteHeight="42dp"
+        tools:layout_conversion_absoluteWidth="411dp" />
+
 
     <androidx.core.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="fill_parent"
-        android:layout_above="@id/buttons_layout"
-        android:layout_below="@+id/tvHeader"
-        android:layout_marginTop="0dp"
-        android:layout_marginBottom="0dp"
-        android:fillViewport="true">
+        android:layout_width="409dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="4dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toTopOf="@+id/showreachedplaces_bNext"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvHeader">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/reachedPlace_recyclerView"
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="7dp"
-            android:layout_marginBottom="430dp"
-            tools:layout_editor_absoluteX="-16dp"
-            tools:layout_editor_absoluteY="16dp" />
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/reachedPlace_recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"></androidx.recyclerview.widget.RecyclerView>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/reachedPlace_achievementView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
-    <LinearLayout
-        android:id="@+id/buttons_layout"
-        android:layout_width="match_parent"
+
+    <Button
+        android:id="@+id/showreachedplaces_bCancel"
+        android:layout_width="204dp"
         android:layout_height="80dp"
-        android:layout_alignParentBottom="true"
-        android:baselineAligned="false"
-        android:orientation="horizontal">
+        android:layout_marginStart="4dp"
+        android:layout_weight="1"
+        android:text="@string/btnCancel"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/showreachedplaces_bNext"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/showreachedplaces_bNext" />
 
-        <Button
-            android:id="@+id/showreachedplaces_bCancel"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginStart="3dp"
-            android:layout_marginLeft="3dp"
-            android:layout_marginEnd="3dp"
-            android:layout_weight="1"
-            android:text="Anuluj" />
+    <Button
+        android:id="@+id/showreachedplaces_bNext"
+        android:layout_width="204dp"
+        android:layout_height="80dp"
+        android:layout_marginEnd="4dp"
+        android:layout_weight="1"
+        android:text="@string/btn_next"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/showreachedplaces_bCancel" />
 
-        <Button
-            android:id="@+id/showreachedplaces_bNext"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="3dp"
-            android:layout_marginEnd="3dp"
-            android:layout_weight="1"
-            android:text="Dalej" />
-    </LinearLayout>
-</RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,12 +1,12 @@
 package com.chex.modules.posts.listeners;
 
+import android.annotation.SuppressLint;
 import android.os.AsyncTask;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.chex.config.Settings;
-import com.chex.modules.posts.model.Comment;
 import com.chex.modules.posts.model.Star;
 import com.chex.utils.HttpRequestUtils;
 
@@ -17,9 +17,9 @@ import org.springframework.web.client.RestTemplate;
 
 public class ChangeStarListener implements View.OnClickListener {
 
-    private Long postid;
-    private ImageButton starOn, starOff;
-    private TextView starnum;
+    private final Long postid;
+    private final ImageButton starOn, starOff;
+    private final TextView starnum;
 
     public ChangeStarListener(ImageButton starOff, ImageButton starOn, TextView tv_starnum, Long postid) {
         this.postid = postid;
@@ -37,6 +37,7 @@ public class ChangeStarListener implements View.OnClickListener {
         new ChangeStarAsync().execute(star);
     }
 
+    @SuppressLint("StaticFieldLeak")
     class ChangeStarAsync extends AsyncTask<Star, Void, Boolean>{
 
         @Override

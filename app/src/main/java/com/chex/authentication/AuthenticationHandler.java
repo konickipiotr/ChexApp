@@ -3,8 +3,6 @@ package com.chex.authentication;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.res.Resources;
-import android.content.res.loader.ResourcesLoader;
 import android.os.AsyncTask;
 import android.view.View;
 
@@ -12,7 +10,6 @@ import com.chex.Home;
 import com.chex.MainActivity;
 import com.chex.R;
 import com.chex.config.Settings;
-import com.chex.user.User;
 import com.chex.utils.HttpRequestUtils;
 
 import org.springframework.http.HttpAuthentication;
@@ -20,7 +17,6 @@ import org.springframework.http.HttpBasicAuthentication;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.HttpClientErrorException;
@@ -62,10 +58,6 @@ public class AuthenticationHandler extends AsyncTask<String, Void, String> {
 
             Settings.username = username;
             Settings.password = password;
-
-//            path = Settings.ROOT_PATH + "/user";
-//            ResponseEntity<User> response2 = restTemplate.exchange(path, HttpMethod.GET, new HttpEntity<>(requestHeaders), User.class);
-//            Settings.user = response2.getBody();
 
         }catch (HttpClientErrorException e){
             ret = context.getResources().getString(R.string.wrong_credentials);

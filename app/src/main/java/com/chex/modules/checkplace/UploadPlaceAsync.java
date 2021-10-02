@@ -13,13 +13,13 @@ import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.web.client.RestTemplate;
-import org.springframework.web.util.UriComponents;
-import org.springframework.web.util.UriComponentsBuilder;
 
 import java.lang.ref.WeakReference;
 
 public class UploadPlaceAsync extends AsyncTask<AchievedPlaceDTO, Void, Void> {
-    private WeakReference<AddPlacePhotoActivity> context;
+
+    private final WeakReference<AddPlacePhotoActivity> context;
+
     public UploadPlaceAsync(AddPlacePhotoActivity addPlacePhotoActivity) {
         context = new WeakReference<>(addPlacePhotoActivity);
     }
@@ -28,8 +28,6 @@ public class UploadPlaceAsync extends AsyncTask<AchievedPlaceDTO, Void, Void> {
     protected Void doInBackground(AchievedPlaceDTO... dtos) {
 
         String path = Settings.ROOT_PATH + "/checkplace/finalize";
-        UriComponents build = UriComponentsBuilder.fromHttpUrl(path)
-                .build();
 
         HttpRequestUtils requestUtils = new HttpRequestUtils();
         HttpHeaders requestHeaders = requestUtils.getRequestHeaders();

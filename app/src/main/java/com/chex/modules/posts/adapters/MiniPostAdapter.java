@@ -1,16 +1,17 @@
-package com.chex.modules.posts;
+package com.chex.modules.posts.adapters;
 
 import android.app.Activity;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -19,13 +20,14 @@ import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.bumptech.glide.request.RequestOptions;
 import com.chex.R;
 import com.chex.config.Settings;
+import com.chex.modules.posts.ItemRemover;
 import com.chex.modules.posts.listeners.AddCommentListener;
 import com.chex.modules.posts.listeners.ChangeStarListener;
 import com.chex.modules.posts.listeners.DeletePostListener;
+import com.chex.modules.posts.listeners.ShowFullPostListener;
 import com.chex.modules.posts.model.PostPhoto;
 import com.chex.modules.posts.model.PostView;
 
-import java.io.FileNotFoundException;
 import java.util.List;
 
 public class MiniPostAdapter extends RecyclerView.Adapter<MiniPostAdapter.ViewHolder> implements ItemRemover {
@@ -56,7 +58,7 @@ public class MiniPostAdapter extends RecyclerView.Adapter<MiniPostAdapter.ViewHo
 
         if(postView.getAuthorPhoto() == null || postView.getAuthorPhoto().isEmpty()){
             Glide.with(activity)
-                    .load(activity.getDrawable(R.drawable.user))
+                    .load(ContextCompat.getDrawable(activity, R.drawable.user))
                     .circleCrop()
                     .into(holder.authorPhoto);
         }else {
@@ -75,7 +77,7 @@ public class MiniPostAdapter extends RecyclerView.Adapter<MiniPostAdapter.ViewHo
         holder.placesView.setAdapter(new PlaceAdapter(activity, postView.getPlaces()));
 
         if(postView.getAuthorId().equals(Settings.user.getId())){
-            holder.removePostBtn.setOnClickListener(new DeletePostListener(activity, postView.getId(), this, position));
+            holder.removePostBtn.setOnClickListener(new DeletePostListener(activity, postView.getId()));
             holder.removePostBtn.setVisibility(View.VISIBLE);
         }
 
@@ -88,7 +90,7 @@ public class MiniPostAdapter extends RecyclerView.Adapter<MiniPostAdapter.ViewHo
         if(!postView.getAchievements().isEmpty()){
             holder.achivmentsView.setVisibility(View.VISIBLE);
             holder.tv_achievementLabel.setVisibility(View.VISIBLE);
-            //holder.achivmentsView.setAdapter(); //TODO
+            holder.achivmentsView.setAdapter(new AchievementAdatper(activity, postView.getAchievements())); //TODO
         }
 
         List<PostPhoto> photos = postView.getPhotos();
@@ -97,6 +99,11 @@ public class MiniPostAdapter extends RecyclerView.Adapter<MiniPostAdapter.ViewHo
         }
 
         holder.tv_description.setText(postView.getDescription());
+
+        if(photos.size() > 1){
+            holder.moreBtn.setVisibility(View.VISIBLE);
+            holder.moreBtn.setOnClickListener(new ShowFullPostListener(postView.getId(), activity));
+        }
 
         holder.starOff.setOnClickListener(new ChangeStarListener(holder.starOff,holder.starOn, holder.tv_starnum, postView.getId()));
         holder.starOn.setOnClickListener(new ChangeStarListener(holder.starOff,holder.starOn, holder.tv_starnum, postView.getId()));
@@ -113,9 +120,13 @@ public class MiniPostAdapter extends RecyclerView.Adapter<MiniPostAdapter.ViewHo
         holder.addComment.setOnClickListener(new AddCommentListener(postView.getId(), activity, holder.newcomment));
 
         if(!postView.getCommentViews().isEmpty()){
-            holder.commentsView.setAdapter(new CommentAdapter(activity, postView.getCommentViews()));
+            holder.commentsView.setAdapter(new CommentAdapter(activity, postView.getCommentViews(), true));
         }
 
+        if(postView.getCommentViews().size() > 3){
+            holder.expandBtn.setVisibility(View.VISIBLE);
+            holder.expandBtn.setOnClickListener(new ShowFullPostListener(postView.getId(), activity));
+        }
     }
 
     @Override
@@ -141,6 +152,7 @@ public class MiniPostAdapter extends RecyclerView.Adapter<MiniPostAdapter.ViewHo
         public RecyclerView commentsView;
         public ImageButton removePostBtn, addComment, starOn, starOff;
         public EditText newcomment;
+        public Button expandBtn, moreBtn;
 
 
         public ViewHolder(@NonNull View itemView) {
@@ -163,6 +175,8 @@ public class MiniPostAdapter extends RecyclerView.Adapter<MiniPostAdapter.ViewHo
             starOff = itemView.findViewById(R.id.post_star_off);
             tv_commentNum = itemView.findViewById(R.id.minipost_comment_num);
             tv_starnum = itemView.findViewById(R.id.post_star_num);
+            expandBtn = itemView.findViewById(R.id.minipost_expand_comment_btn);
+            moreBtn = itemView.findViewById(R.id.minitpost_more_btn);
         }
     }
 }

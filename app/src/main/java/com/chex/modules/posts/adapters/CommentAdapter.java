@@ -1,4 +1,4 @@
-package com.chex.modules.posts;
+package com.chex.modules.posts.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -16,20 +17,22 @@ import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.bumptech.glide.request.RequestOptions;
 import com.chex.R;
 import com.chex.config.Settings;
+import com.chex.modules.posts.ItemRemover;
 import com.chex.modules.posts.listeners.DeleteCommentListener;
 import com.chex.modules.posts.model.CommentView;
-import com.chex.modules.posts.model.PlaceShortView;
 
 import java.util.List;
 
 public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ViewHolder> implements ItemRemover {
 
-    private Context context;
-    private List<CommentView> comments;
+    private final Context context;
+    private final List<CommentView> comments;
+    private final boolean minipost;
 
-    public CommentAdapter(Context context, List<CommentView> comments) {
+    public CommentAdapter(Context context, List<CommentView> comments, boolean minipost) {
         this.context = context;
         this.comments = comments;
+        this.minipost = minipost;
     }
 
     @NonNull
@@ -46,7 +49,7 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ViewHold
 
         if(cv.getAuthorPhoto() == null || cv.getAuthorPhoto().isEmpty()){
             Glide.with(context)
-                    .load(context.getDrawable(R.drawable.user))
+                    .load(ContextCompat.getDrawable(context, R.drawable.user))
                     .apply(RequestOptions.bitmapTransform(new RoundedCorners(14)))
                     .into(holder.commentAuthorImg);
         }else {
@@ -68,7 +71,9 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ViewHold
 
     @Override
     public int getItemCount() {
-        return Math.min(comments.size(), 3);
+        if(minipost)
+            return Math.min(comments.size(), 3);
+        return comments.size();
     }
 
     @Override

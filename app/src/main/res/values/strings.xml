@@ -14,7 +14,6 @@
 
     <string name="there_is_no_place_in_area">W okolicy nie ma interesującego miejsca</string>
     <string name="unknown_error_occured">Wystąpił nieznany błąd</string>
-    <string name="takePhoto">Zrób zdjęcie</string>
 
     <string name="btnCheck">CHECK</string>
     <string name="btnResetPass">Resetuj hasło</string>
@@ -57,11 +56,25 @@
 
     <string name="you_visited_male">Odwiedziłeś</string>
     <string name="you_visited_female">Odwiedziłaś</string>
+    <string name="you_achieved_male">Zdobyłeś</string>
+    <string name="you_achieved_female">Zdobyłaś</string>
     <string name="how_do_you_rate_this_place">Jak oceniasz to miejsce?</string>
     <string name="exp">Exp: </string>
 
-
+    <!-- btn -->
     <string name="btnCancel">Anuluj</string>
     <string name="btnChange">Zmień</string>
+    <string name="btn_next">Dalej</string>
+    <string name="btn_publish">Publikuj</string>
+    <string name="btn_post_more">Więcej...</string>
+    <string name="btn_expand">Rozwiń...</string>
+
+    <!--  Create Post  -->
+    <string name="label_add_something_from_you">Dodaj coś od siebie</string>
+    <string name="label_user_photo">Zdjęcie użytkownika</string>
+    <!--  Posts  -->
+    <string name="label_achieved">zdobył</string>
+    <string name="msg_region_visited_first_time">Oraz pierwszy raz odwiedził region:</string>
+    <string name="msg_achievement_achieved">Nowe osiągnięcie zdobyte:</string>
 
 </resources>

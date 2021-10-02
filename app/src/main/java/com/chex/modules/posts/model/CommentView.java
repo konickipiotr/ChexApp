@@ -1,6 +1,8 @@
 package com.chex.modules.posts.model;
 
-public class CommentView {
+import java.io.Serializable;
+
+public class CommentView implements Serializable {
     private Long id;
     private Long authorid;
     private boolean isAuthor;

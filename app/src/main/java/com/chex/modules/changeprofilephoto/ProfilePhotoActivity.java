@@ -22,7 +22,6 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.chex.R;
 import com.chex.config.Settings;
-import com.chex.modules.checkplace.addphoto.AddPlacePhotoActivity;
 import com.chex.utils.FileUtils;
 import com.chex.utils.LongerEdge;
 import com.chex.utils.PhotoType;
@@ -56,8 +55,6 @@ public class ProfilePhotoActivity extends AppCompatActivity {
                     Manifest.permission.CAMERA
             }, Settings.CAMERA_SRC);
         }
-
-
     }
 
     private void init(){
@@ -68,10 +65,10 @@ public class ProfilePhotoActivity extends AppCompatActivity {
         next = findViewById(R.id.makeprofilephoto_next);
         profilePhoto = findViewById(R.id.makeprofilephoto_photo);
 
-        cancel.setOnClickListener(v -> {finish();});
+        cancel.setOnClickListener(v -> finish());
 
         deletePhoto.setOnClickListener(v -> {
-            Glide.with(this).load(getDrawable(R.drawable.user)).circleCrop().into(profilePhoto);
+            Glide.with(this).load(ContextCompat.getDrawable(this, R.drawable.user)).circleCrop().into(profilePhoto);
             deleteProfilePhoto = true;
         });
 

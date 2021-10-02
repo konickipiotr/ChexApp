@@ -1,5 +1,6 @@
 package com.chex.modules.posts.listeners;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.os.AsyncTask;
@@ -16,10 +17,10 @@ import org.springframework.http.HttpMethod;
 import org.springframework.web.client.RestTemplate;
 
 public class DeleteCommentListener implements View.OnClickListener {
-    private Long commentid;
-    private Context context;
-    private ItemRemover itemRemover;
-    private int position;
+    private final Long commentid;
+    private final Context context;
+    private final ItemRemover itemRemover;
+    private final int position;
 
     public DeleteCommentListener(Long commentid, Context context, ItemRemover itemRemover, int position) {
         this.commentid = commentid;
@@ -47,6 +48,7 @@ public class DeleteCommentListener implements View.OnClickListener {
 
     }
 
+    @SuppressLint("StaticFieldLeak")
     private class RemoveCommentAsync extends AsyncTask<Void, Void, Void>{
 
         @Override

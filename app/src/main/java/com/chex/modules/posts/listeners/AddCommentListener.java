@@ -1,5 +1,6 @@
 package com.chex.modules.posts.listeners;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.os.AsyncTask;
 import android.view.View;
@@ -17,9 +18,9 @@ import org.springframework.web.client.RestTemplate;
 import java.time.LocalDateTime;
 
 public class AddCommentListener implements View.OnClickListener {
-    private Long postid;
-    private Activity activity;
-    private EditText commentEdit;
+    private final Long postid;
+    private final Activity activity;
+    private final EditText commentEdit;
 
     public AddCommentListener(Long postid, Activity activity, EditText commentEdit) {
         this.postid = postid;
@@ -37,11 +38,13 @@ public class AddCommentListener implements View.OnClickListener {
         comment.setContent(content);
         comment.setCreated(LocalDateTime.now());
         comment.setPostid(postid);
+        commentEdit.setText("");
         new AddCommentAsync().execute(comment);
 
 
     }
 
+    @SuppressLint("StaticFieldLeak")
     class AddCommentAsync extends AsyncTask<Comment, Void, Void>{
 
         @Override
